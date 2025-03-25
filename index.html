@@ -4,31 +4,213 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CV - Matheus Zeitune</title>
+    <title>Matheus Zeitune - Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .portfolio-block {
+            padding: 50px 0;
+        }
+
+        .portfolio-block.cv {
+            padding-top: 0;
+        }
+
+        .block-intro {
+            background: linear-gradient(135deg, #fff, var(--light-bg));
+            padding: 100px 0;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .about-me {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .portfolio-info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .heading {
+            margin-bottom: 40px;
+        }
+
+        .heading h2 {
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .heading h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .work-experience .item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .work-experience h3 {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .work-experience h4 {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .period {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .skills img {
+            transition: transform 0.3s ease;
+        }
+
+        .skills img:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-info .icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-info .row {
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hobbies {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .hobbies .heading {
+            margin-bottom: 10px;
+        }
+
+        .hobbies .heading h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .hobbies p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><a class="navbar-brand logo" href="#">Matheus Zeitune</a><button
-                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav"><span
-                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top portfolio-navbar gradient">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">Matheus Zeitune</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarNav">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto"></ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experiência</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#educacao">Educação</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
             </div>
         </div>
     </nav>
     <main class="page cv-page">
-        <section class="portfolio-block block-intro border-bottom">
+        <section class="portfolio-block block-intro" id="sobre">
             <div class="container">
                 <div class="avatar"
                     style="background: url(&quot;assets/img/avatars/perfil.jpg&quot;) top / cover;font-size: 16px;">
                 </div>
                 <div class="about-me">
-                    <p>Olá, meu nome é Matheus Zeitune, 27 anos, do Rio de Janeiro. Sou desenvolvedor Full Stack Pleno com mais de 5 anos de experiência no desenvolvimento de sistemas estratégicos para setores governamentais, esportivos e ambientais. Minha especialidade é a construção de arquiteturas escaláveis utilizando .NET, C#, React, JavaScript, TypeScript e microsserviços, além de forte atuação em DevOps, automação de processos e segurança da informação.<br></p>
+                    <p>Olá, meu nome é Matheus Zeitune, 27 anos, do Rio de Janeiro. Sou desenvolvedor Full Stack Pleno com mais de 5 anos de experiência no desenvolvimento de sistemas estratégicos para setores governamentais, esportivos e ambientais. Minha especialidade é a construção de arquiteturas escaláveis utilizando .NET, C#, React, JavaScript, TypeScript e microsserviços, além de forte atuação em DevOps, automação de processos e segurança da informação.</p>
                 </div>
             </div>
         </section>
@@ -36,7 +218,7 @@
     <footer class="page-footer">
         <section class="portfolio-block cv">
             <div class="container">
-                <div class="work-experience group">
+                <div class="work-experience group" id="experiencia">
                     <div class="heading">
                         <h2 class="text-center">EXPERIÊNCIA PROFISSIONAL</h2>
                     </div>
@@ -91,7 +273,7 @@
                         <p class="text-muted">Na MTSLAB, colaborei na otimização de processos internos e automação de tarefas. Desenvolvi plataformas para geração automatizada de relatórios gerenciais e sistemas de gestão de workflows administrativos. Implementei módulos de geração de relatórios dinâmicos, integrando múltiplos bancos de dados MySQL. Desenvolvi background services para automatizar tarefas repetitivas e conduzi a migração de processos manuais para plataformas web-based, além de administrar servidores IIS e otimizar o desempenho das aplicações.</p>
                     </div>
                 </div>
-                <div class="education group">
+                <div class="education group" id="educacao">
                     <div class="heading">
                         <h2 class="text-center">Educação</h2>
                     </div>
@@ -127,54 +309,42 @@
                 <div class="group">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="skills portfolio-info-card">
+                            <div class="skills portfolio-info-card" id="skills">
                                 <h2>Skills</h2>
                                 <div class="row">
-                                    <div class="col-xl-12" style="padding-right: 0px;padding-left: 0px;"><img
-                                            src="assets/img/avatars/c-sharp.png"
-                                            style="width: 50px;height: 50px;min-width: 30px;"><img
-                                            src="assets/img/avatars/js.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/typescript.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/html-5.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/css-3.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/dart.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"></div>
+                                    <div class="col-xl-12" style="padding-right: 0px;padding-left: 0px;">
+                                        <img src="assets/img/avatars/c-sharp.png" alt="C#" style="width: 50px;height: 50px;min-width: 30px;">
+                                        <img src="assets/img/avatars/js.png" alt="JavaScript" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/typescript.png" alt="TypeScript" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/html-5.png" alt="HTML5" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/css-3.png" alt="CSS3" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/dart.png" alt="Dart" style="width: 50px;height: 50px;margin-left: 5px;">
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col" style="margin-top: 5px;padding-right: 0px;padding-left: 0px;"><img
-                                            src="assets/img/avatars/c.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;" width="50"
-                                            height="50"><img src="assets/img/avatars/dotnet.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/aspnetcore.jpg"
-                                            style="width: 60px;height: 60px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/asp.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/dotnetcore.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"></div>
+                                    <div class="col" style="margin-top: 5px;padding-right: 0px;padding-left: 0px;">
+                                        <img src="assets/img/avatars/c.png" alt="C" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/dotnet.svg" alt=".NET" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/aspnetcore.jpg" alt="ASP.NET Core" style="width: 60px;height: 60px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/asp.png" alt="ASP.NET" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/dotnetcore.svg" alt=".NET Core" style="width: 50px;height: 50px;margin-left: 5px;">
+                                    </div>
                                 </div>
                                 <div class="row" style="margin-top: 5px;">
-                                    <div class="col"><img src="assets/img/avatars/react.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/express.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/efc.png"
-                                            style="width: 50px;height: 40px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/typeorm.png" style="width: 70px;height: 50px;"><img
-                                            src="assets/img/avatars/git.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"></div>
+                                    <div class="col">
+                                        <img src="assets/img/avatars/react.svg" alt="React" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/express.svg" alt="Express" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/efc.png" alt="Entity Framework Core" style="width: 50px;height: 40px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/typeorm.png" alt="TypeORM" style="width: 70px;height: 50px;">
+                                        <img src="assets/img/avatars/git.png" alt="Git" style="width: 50px;height: 50px;margin-left: 5px;">
+                                    </div>
                                 </div>
                                 <div class="row" style="margin-top: 5px;">
-                                    <div class="col"><img src="assets/img/avatars/docker.png"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/postgresql.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"><img
-                                            src="assets/img/avatars/microsoftsqlserver.svg"
-                                            style="width: 50px;height: 50px;margin-left: 5px;"></div>
+                                    <div class="col">
+                                        <img src="assets/img/avatars/docker.png" alt="Docker" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/postgresql.svg" alt="PostgreSQL" style="width: 50px;height: 50px;margin-left: 5px;">
+                                        <img src="assets/img/avatars/microsoftsqlserver.svg" alt="SQL Server" style="width: 50px;height: 50px;margin-left: 5px;">
+                                    </div>
                                 </div>
                                 <h5 class="text-muted" style="margin-top: 15px;">Linguagens:</h5>
                                 <p class="text-muted">C#, Go, JavaScript, TypeScript, Dart, Java</p>
@@ -187,7 +357,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="contact-info portfolio-info-card">
+                            <div class="contact-info portfolio-info-card" id="contato">
                                 <h2>Contato</h2>
                                 <div class="row">
                                     <div class="col-1"><i class="icon ion-person icon"></i></div>
@@ -203,12 +373,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-1"><i class="icon ion-social-github icon"></i></div>
-                                    <div class="col-9 col-xl-11"><span>https://github.com/mzet97</span></div>
+                                    <div class="col-9 col-xl-11"><a href="https://github.com/mzet97" target="_blank" style="color: inherit; text-decoration: none;">https://github.com/mzet97</a></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-1"><i class="icon ion-social-linkedin icon"></i></div>
-                                    <div class="col-9 col-xl-11"><span>https://linkedin.com/in/matheus-zeitune</span>
-                                    </div>
+                                    <div class="col-9 col-xl-11"><a href="https://linkedin.com/in/matheus-zeitune" target="_blank" style="color: inherit; text-decoration: none;">https://linkedin.com/in/matheus-zeitune</a></div>
                                 </div>
                                 <h5 class="text-muted" style="margin-top: 15px;">Idiomas:</h5>
                                 <p class="text-muted">Inglês: Intermediário (em aprimoramento)<br>Hebraico: Básico</p>
@@ -220,14 +389,15 @@
                     <div class="heading">
                         <h2 class="text-center">Hobbies</h2>
                     </div>
-                    <p class="text-center text-muted">Apaixonado por tecnologia, tem como hobbies estudar sobre novas
-                        linguagens de programação e novos&nbsp;frameworks</p>
+                    <p class="text-center text-muted">Apaixonado por tecnologia, tem como hobbies estudar sobre novas linguagens de programação e novos frameworks</p>
                 </div>
             </div>
         </section>
         <div class="container">
-            <div class="links"></div>
-            <div class="social-icons"></div>
+            <div class="social-icons text-center">
+                <a href="https://github.com/mzet97" target="_blank"><i class="icon ion-social-github"></i></a>
+                <a href="https://linkedin.com/in/matheus-zeitune" target="_blank"><i class="icon ion-social-linkedin"></i></a>
+            </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
