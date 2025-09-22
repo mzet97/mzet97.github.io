@@ -1,0 +1,55 @@
+# Robots.txt for Matheus Zeitune Portfolio
+# https://mzet97.github.io/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mzet97.github.io/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow common non-content paths
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /*.tmp
+Disallow: /*.temp
+
+# Allow important assets for SEO
+Allow: /assets/img/
+Allow: /assets/manifest.json
+Allow: /assets/browserconfig.xml
+
+# Special instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block AI training bots (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
