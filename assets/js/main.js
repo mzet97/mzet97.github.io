@@ -203,15 +203,19 @@ const progressBar = {
     }
 };
 
+// Theme system removed - using fixed color palette
+
 // Enhanced Skills animation
 const skillsAnimation = {
     skillsAnimated: false,
     statsAnimated: false,
+    methodologyAnimated: false,
     
     init: () => {
         skillsAnimation.setupSkillsObserver();
         skillsAnimation.setupStatsObserver();
         skillsAnimation.setupSkillInteractions();
+        skillsAnimation.setupMethodologyObserver();
     },
     
     setupSkillsObserver: () => {
@@ -262,6 +266,39 @@ const skillsAnimation = {
             observer.observe(statsSection);
         }
     },
+
+    setupMethodologyObserver: () => {
+        const methodologySection = document.querySelector('.methodology-section');
+        const methodologyCards = document.querySelectorAll('.methodology-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    skillsAnimation.animateMethodology();
+                }
+            });
+        }, { 
+            threshold: 0.3,
+            rootMargin: '-50px'
+        });
+        
+        if (methodologySection) {
+            observer.observe(methodologySection);
+        }
+        
+        // Individual methodology card observer
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        methodologyCards.forEach(card => {
+            cardObserver.observe(card);
+        });
+    },
     
     animateSkills: () => {
         if (skillsAnimation.skillsAnimated) return;
@@ -286,8 +323,7 @@ const skillsAnimation = {
                     }, 2000);
                 }
                 
-                // Add sound effect (optional)
-                skillsAnimation.playSkillSound(width);
+
                 
             }, index * 150);
         });
@@ -310,6 +346,34 @@ const skillsAnimation = {
         });
         
         skillsAnimation.statsAnimated = true;
+    },
+
+    animateMethodology: () => {
+        if (skillsAnimation.methodologyAnimated) return;
+        
+        const progressBars = document.querySelectorAll('.methodology-card .progress-fill');
+        
+        progressBars.forEach((bar, index) => {
+            const width = bar.dataset.width;
+            const card = bar.closest('.methodology-card');
+            
+            setTimeout(() => {
+                // Animate progress bar
+                bar.style.width = `${width}%`;
+                
+                // Add visual feedback
+                if (card) {
+                    card.classList.add('animating');
+                    
+                    // Remove animating class after animation
+                    setTimeout(() => {
+                        card.classList.remove('animating');
+                    }, 2000);
+                }
+            }, index * 200);
+        });
+        
+        skillsAnimation.methodologyAnimated = true;
     },
     
     animateNumber: (element, start, end, duration, suffix = '') => {
@@ -416,31 +480,7 @@ const skillsAnimation = {
         }
     },
     
-    playSkillSound: (width) => {
-        // Optional: Add subtle audio feedback
-        if ('AudioContext' in window) {
-            try {
-                const audioContext = new AudioContext();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                // Frequency based on skill level
-                oscillator.frequency.setValueAtTime(200 + (width * 5), audioContext.currentTime);
-                oscillator.type = 'sine';
-                
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-                
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.3);
-            } catch (error) {
-                // Silently fail if audio context is not available
-            }
-        }
-    },
+
     
     // Method to reset animations (useful for testing)
     resetAnimations: () => {
@@ -1692,7 +1732,9 @@ const timeline = {
         
         // Insert navigation before timeline
         const timelineElement = experienceSection.querySelector('.timeline');
-        timelineElement.parentNode.insertBefore(nav, timelineElement);
+        if (timelineElement && timelineElement.parentNode) {
+            timelineElement.parentNode.insertBefore(nav, timelineElement);
+        }
         
         // Add click handlers
         const navItems = nav.querySelectorAll('.timeline-nav-item');
